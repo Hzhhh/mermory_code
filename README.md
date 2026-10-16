@@ -1,4 +1,14 @@
-# AML Memory System (Rule-based Retrieval Engineering)
+# Mermory Code — AML 商业榜参赛系统（记忆编译器 + 证据包编排器）
+
+Agent Memory Leaderboard (AML) 商业榜（industry/textual）参赛系统。目标 ≥63 分（一期 top1 = 58.02）。
+
+**架构**：三层存储（L0 原文层 / L1 类型化记录层 / L2 派生层）+ 五步 Search 流水线（查询分析 → 多路召回 → 证据组装 → 质量门 → 输出）。设计文档见 `docs/superpowers/specs/2026-10-16-aml-commercial-memory-compiler-design.md`。
+
+> 本仓库 fork 自开源榜参赛系统（远程 `baseline`，47.22 分的零 LLM 规则方案），保留其检索骨架、拒答设计与运维底盘。以下为基线系统的原始说明。
+
+---
+
+# AML Memory System (Rule-based Retrieval Engineering) — 基线
 
 Agent Memory Leaderboard (AML) 第二期文本赛道参赛系统 —— 学术开源组。
 
