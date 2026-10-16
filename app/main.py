@@ -80,6 +80,9 @@ class SearchResponse(BaseModel):
 
 
 # ---------- 契约端点 ----------
+# 双路由：官方表单填 /v1/memory/* 完整地址（平台探测字面 URL），本地调试用 /add
+@app.post("/v1/memory/add", response_model=AddResponse,
+          dependencies=[Depends(verify_token)], include_in_schema=False)
 @app.post("/add", response_model=AddResponse, dependencies=[Depends(verify_token)])
 def add(req: AddRequest) -> AddResponse:
     import time as _t
@@ -91,6 +94,8 @@ def add(req: AddRequest) -> AddResponse:
     return AddResponse(request_id=req.request_id, user_id=req.user_id, session_id=req.session_id)
 
 
+@app.post("/v1/memory/search", response_model=SearchResponse,
+          dependencies=[Depends(verify_token)], include_in_schema=False)
 @app.post("/search", response_model=SearchResponse, dependencies=[Depends(verify_token)])
 def search(req: SearchRequest) -> SearchResponse:
     import time as _t
